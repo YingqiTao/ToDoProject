@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -30,12 +31,131 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="ToDo List" id="6kE-6a-hJX">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="PDZ-HH-xS3"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="PDZ-HH-xS3">
+                            <connections>
+                                <segue destination="PfD-hQ-tgh" kind="show" id="WDe-zy-DRS"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="UP7-ke-trv" kind="show" identifier="moveToRemove" id="G6b-tA-OJE"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aTd-jr-SLq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="956.52173913043487" y="129.91071428571428"/>
+        </scene>
+        <!--Add To Do View Controller-->
+        <scene sceneID="rnC-gO-7RB">
+            <objects>
+                <viewController id="PfD-hQ-tgh" customClass="AddToDoViewController" customModule="ToDoProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QH4-Wg-syS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8s9-TL-PzM">
+                                <rect key="frame" x="46" y="224" width="88" height="38"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kz6-vP-YZQ">
+                                <rect key="frame" x="100" y="226" width="236" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Important: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bir-Gp-g3A">
+                                <rect key="frame" x="46" y="294" width="104" height="27"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GYl-uP-c8g">
+                                <rect key="frame" x="131" y="381" width="157" height="39"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Add to ToDo List"/>
+                                <connections>
+                                    <action selector="addTapped:" destination="PfD-hQ-tgh" eventType="touchUpInside" id="3jd-IV-VKg"/>
+                                </connections>
+                            </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="BR4-dX-5Z9">
+                                <rect key="frame" x="158" y="294" width="51" height="31"/>
+                            </switch>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="BR4-dX-5Z9" firstAttribute="leading" secondItem="Bir-Gp-g3A" secondAttribute="trailing" constant="8" id="1jl-Nb-cHY"/>
+                            <constraint firstItem="Bir-Gp-g3A" firstAttribute="top" secondItem="BR4-dX-5Z9" secondAttribute="top" id="46C-Rg-33f"/>
+                            <constraint firstItem="8s9-TL-PzM" firstAttribute="leading" secondItem="X6N-78-zJq" secondAttribute="leading" constant="46" id="Ayc-IB-1kn"/>
+                            <constraint firstItem="GYl-uP-c8g" firstAttribute="leading" secondItem="X6N-78-zJq" secondAttribute="leading" constant="131" id="D7U-Su-ujR"/>
+                            <constraint firstItem="Kz6-vP-YZQ" firstAttribute="top" secondItem="X6N-78-zJq" secondAttribute="top" constant="138" id="SEL-Mx-p9Y"/>
+                            <constraint firstItem="8s9-TL-PzM" firstAttribute="leading" secondItem="Bir-Gp-g3A" secondAttribute="leading" id="UWQ-72-eXZ"/>
+                            <constraint firstItem="Kz6-vP-YZQ" firstAttribute="leading" secondItem="X6N-78-zJq" secondAttribute="leading" constant="100" id="Y74-Tj-XBc"/>
+                            <constraint firstItem="X6N-78-zJq" firstAttribute="trailing" secondItem="8s9-TL-PzM" secondAttribute="trailing" constant="280" id="Ydt-Zx-EFs"/>
+                            <constraint firstItem="8s9-TL-PzM" firstAttribute="centerY" secondItem="Kz6-vP-YZQ" secondAttribute="centerY" id="ixr-9q-ZkH"/>
+                            <constraint firstItem="Bir-Gp-g3A" firstAttribute="top" secondItem="8s9-TL-PzM" secondAttribute="bottom" constant="32" id="npu-5I-O9y"/>
+                            <constraint firstItem="8s9-TL-PzM" firstAttribute="top" secondItem="X6N-78-zJq" secondAttribute="top" constant="136" id="pLE-wA-6CZ"/>
+                            <constraint firstItem="GYl-uP-c8g" firstAttribute="top" secondItem="BR4-dX-5Z9" secondAttribute="bottom" constant="56" id="sV7-4r-cdz"/>
+                            <constraint firstItem="X6N-78-zJq" firstAttribute="trailing" secondItem="Kz6-vP-YZQ" secondAttribute="trailing" constant="78" id="xcy-ol-BLW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="X6N-78-zJq"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="2SR-5Z-V3E"/>
+                    <connections>
+                        <outlet property="importantSwitch" destination="BR4-dX-5Z9" id="lCp-Ti-lOU"/>
+                        <outlet property="titleTextField" destination="Kz6-vP-YZQ" id="OpO-fp-LMJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WgX-tB-UHI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1728.985507246377" y="129.91071428571428"/>
+        </scene>
+        <!--Remove To Do View Controller-->
+        <scene sceneID="Ju5-kh-eou">
+            <objects>
+                <viewController id="UP7-ke-trv" customClass="RemoveToDoViewController" customModule="ToDoProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2MB-q2-jgU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G11-9i-C3L">
+                                <rect key="frame" x="121" y="190" width="172" height="62"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VWt-xO-4Pv">
+                                <rect key="frame" x="161" y="283" width="93" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="f9P-3X-gQa"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="Complete"/>
+                                <connections>
+                                    <action selector="completeTapped:" destination="UP7-ke-trv" eventType="touchUpInside" id="AGX-5I-XsI"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="VWt-xO-4Pv" firstAttribute="top" secondItem="G11-9i-C3L" secondAttribute="bottom" constant="31" id="9e6-ZB-97c"/>
+                            <constraint firstItem="G11-9i-C3L" firstAttribute="centerX" secondItem="2MB-q2-jgU" secondAttribute="centerX" id="ARt-tu-LLH"/>
+                            <constraint firstItem="G11-9i-C3L" firstAttribute="leading" secondItem="lby-rr-fBm" secondAttribute="leading" constant="120" id="KGs-vS-OXk"/>
+                            <constraint firstItem="G11-9i-C3L" firstAttribute="centerX" secondItem="VWt-xO-4Pv" secondAttribute="centerX" id="MVh-Ep-0tB"/>
+                            <constraint firstItem="VWt-xO-4Pv" firstAttribute="leading" secondItem="lby-rr-fBm" secondAttribute="leading" constant="140" id="Sou-0W-lQy"/>
+                            <constraint firstItem="lby-rr-fBm" firstAttribute="bottom" secondItem="VWt-xO-4Pv" secondAttribute="bottom" constant="540" id="TT5-Ea-B9o"/>
+                            <constraint firstItem="G11-9i-C3L" firstAttribute="top" secondItem="lby-rr-fBm" secondAttribute="top" constant="102" id="atE-Lu-CXL"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="lby-rr-fBm"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="k1V-Sb-tDt"/>
+                    <connections>
+                        <outlet property="titleLabel" destination="G11-9i-C3L" id="jj8-Gb-7Jl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7fp-9I-1uU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="956.52173913043487" y="787.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Mvr-FP-72j">
